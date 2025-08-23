@@ -6,10 +6,6 @@ body {
     linear-gradient(rgba(249, 246, 241, 0.85), rgba(249, 246, 241, 0.85)),
     url("vol_youth.jpg") no-repeat center center fixed;
   background-size: cover;
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
-  line-height: 1.6;
 }
 
 /* ===== Header ===== */
@@ -112,3 +108,4 @@ footer {
   font-size: 0.9em;
   text-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
+
