@@ -62,14 +62,30 @@ summary {
   background: #002b5c; /* navy closed */
   color: #fff;
   list-style: none;
+  position: relative;
 }
 
+/* Hide default disclosure triangle */
 summary::-webkit-details-marker {
   display: none;
 }
 
+/* Custom chevrons */
+summary::after {
+  content: "⏷⏷";   /* double up chevron when closed */
+  position: absolute;
+  right: 20px;
+  font-size: 1.2em;
+  transition: transform 0.3s ease;
+}
+
+/* Change to down chevrons when open */
+details[open] summary::after {
+  content: "⏶⏶";   /* double down chevron when open */
+}
+
 details[open] summary {
-  background: #b8860b; /* gold open */
+  background: #b8860b; /* gold when open */
   color: #fff;
 }
 
