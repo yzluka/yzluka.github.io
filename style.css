@@ -55,33 +55,40 @@ details {
 }
 
 summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* text left, icon right */
+  padding: 15px 20px;
   font-size: 1.2em;
   font-weight: bold;
   cursor: pointer;
-  padding: 15px 20px;
   background: #002b5c; /* navy closed */
   color: #fff;
-  list-style: none;
-  position: relative;
 }
 
-/* Hide default disclosure triangle */
+/* hide default disclosure marker */
 summary::-webkit-details-marker {
   display: none;
 }
 
+
 /* Custom chevrons */
 summary::after {
-  content: "⏷⏷";   /* double up chevron when closed */
-  position: absolute;
-  right: 20px;
-  font-size: 1.2em;
-  transition: transform 0.3s ease;
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("icons/dd_round.svg") no-repeat center center;
+  background-size: contain;
+  filter: brightness(0) invert(1); /* make white if original black */
+
 }
 
-/* Change to down chevrons when open */
+/* Open (expanded) state icon */
 details[open] summary::after {
-  content: "⏶⏶";   /* double down chevron when open */
+  background: url("icons/du_round.svg") no-repeat center center;
+  background-size: contain;
+  filter: brightness(0) invert(1);
 }
 
 details[open] summary {
