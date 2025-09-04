@@ -135,3 +135,57 @@ footer {
   font-size: 0.9em;
   text-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
+
+
+/* Remove bullets from nested lists */
+details ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 1em; /* keep indentation */
+}
+
+li > details {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style nested <summary> differently */
+details details > summary {
+  background: #f5f5f5;   /* light gray background */
+  color: #222;
+  font-size: 1em;
+  font-weight: normal;
+  padding: 10px 16px;
+  border-top: 1px solid #ddd;
+}
+
+/* Custom + / – toggles for nested dropdowns */
+details details > summary::after {
+  background: none !important; /* disable the svg icon */
+  content: "+";                /* use + by default */
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-left: auto;           /* push to the right */
+}
+
+details details[open] > summary::after {
+  content: "–";                /* change to – when open */
+}
+
+/* Optional: subtle background change when open */
+details details[open] > summary {
+  background: #e0e0e0;
+  color: #000;
+}
+
+.project-details h4 {
+  margin-top: 0.6em;   /* smaller top margin */
+  margin-bottom: 0.3em; /* tighter bottom margin */
+  font-size: 1.05em;   /* optional: slightly smaller than summary */
+  color: #002b5c;      /* keep consistent with your theme */
+}
+.project-details p {
+  margin-top: 0;       /* remove extra top space */
+  margin-bottom: 0.8em;
+}

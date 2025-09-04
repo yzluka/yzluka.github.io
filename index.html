@@ -70,36 +70,122 @@
       <h2>Research Projects</h2>
 
       <div class="float-window">
+         <details>
+    <summary>Model Analysis, Benchmarking & Evaluation</summary>
+    <ul>
+	<li>
+	  <details>
+		<summary>
+		  Revealing Failure Modes of Segment Anything Model (SAM)
+		</summary>
+		<div class="project-details">
+		  <h4>Motivation</h4>
+		  <p>As of 2024, existing studies have demonstrated where SAM performs effectively and where its limitations arise. 
+		  However, a unified explanation for the underlying causes of these differences is still lacking. 
+		  This project seeks to move beyond empirical observation by examining whether specific image or object characteristics make SAM particularly vulnerable. 
+		  Such insights may also reveal what is missing in the training dataset and help guide future improvements.</p>
+
+		  <h4>Reseach Method</h4>
+		  <p>We began by closely examining SAM’s failure cases in order to build intuition about the types of errors it tends to make. 
+		  From these observations, we developed a candidate metric designed to capture image or object characteristics that appeared to contribute to poor performance, 
+		  such as irregular shapes, low contrast, or noisy boundaries. We then quantified this metric across datasets and evaluated its correlation with SAM’s segmentation accuracy, 
+		  measured by the Dice Similarity Coefficient (DSC), particularly on datasets that SAM consistently found challenging.</p>
+
+		  <h4>My Contributions</h4>
+		  <p>The research topic was defined by my PI, and I was responsible for designing and conducting the experiments. 
+		  This included curating datasets, implementing a prompt simulation algorithm, testing different prompting strategies, 
+		  and analyzing SAM’s performance to identify its failure modes. While my collaborator focused on writing the manuscript, 
+		  my contributions centered on building and executing the experimental pipeline and generating the results that informed the study.</p>
+
+		  <h4>Publication</h4>
+		  <p>
+			<a href="https://openreview.net/pdf?id=pYo3asIaMY">Link to journal paper</a>
+		  </p>
+		</div>
+	  </details>
+	</li>
+	<li>
+	  <details>
+		<summary>
+		  Empirical Evaluation of Segment Anything Model (SAM) for Medical Images Application
+		</summary>
+		<div class="project-details">
+		  <h4>Motivation</h4>
+		  <p>Meta’s Segment Anything Model (SAM) is the first large-scale vision foundation model designed for object segmentation.
+			It is promoted as having strong zero-shot generalization, which means it can identify and segment new objects without needing 
+			additional training, similar to recognizing something new even if you have never seen it before.
+			Our aim is to examine whether SAM can generalize effectively to medical imaging tasks, such as segmenting objects in 
+			CT, MRI, ultrasound, and PET scans, and to assess how close it is to being suitable for deployment in clinical practice.</p>
+
+		  <h4>Reseach Method</h4>
+		  <p>We curated 19 datasets covering diverse imaging modalities and body regions to evaluate the conditions under which SAM performs well and where it struggles. 
+		  To simulate realistic usage, we algorithmically generated prompts that mimic user input and also tested SAM in its “everything” mode. 
+		  We further explored multiple prompting strategies by varying prompt style, position, and count to understand their impact on segmentation outcomes. 
+		  For benchmarking, SAM’s performance was compared against other state-of-the-art interactive segmentation models, 
+		  including RITM, SimpleClick, and FocalClick, and the final results were analyzed to highlight performance differences and remaining gaps.</p>
+
+		  <h4>My Contributions</h4>
+		  <p>I contributed to the design of the prompt simulation algorithm, which was developed to generate prompts that mimic human input. 
+		  To enable fair benchmarking, I also modified the RITM, FocalClick, and SimpleClick repositories, since they do not provide 
+		  APIs directly callable from code or the command line. By building a proxy API that allowed simulated prompts to be passed into these models, 
+		  I made it possible to run the experiments efficiently and in a timely manner. </p>
+
+		  <h4>Publication</h4>
+		  <p>
+			<a href="https://www.sciencedirect.com/science/article/abs/pii/S1361841523001780">Link to journal paper</a>
+		  </p>
+		</div>
+	  </details>
+	</li>
+		<li>
+	  <details>
+		<summary>
+		  Analyzing the Feature Learning Trends in CNN-based Networks for Semantic Segmentation
+		</summary>
+		<div class="project-details">
+		  <h4>Motivation</h4>
+		  <p>Shape is a robust visual feature that is easily recognized by the human eye. In medical imaging,
+		  many regions of interest (ROIs) share similar shapes, yet models often struggle due to significant domain shifts across modalities or datasets. 
+		  This raises an important question: if shape is such a stable and transferable feature, why do models fail to leverage it effectively? 
+		  Our goal is to investigate whether there are factors preventing models from learning robust shape-based representations.</p>
+
+		  <h4>Reseach Method</h4>
+		  <p>We first conducted a simulated study by constructing datasets with progressively more features in order to observe how the model’s learning 
+		  behavior changes as additional information becomes available. To quantify the importance of individual features, 
+		  we designed a metric based on the performance drop that occurs when the feature under analysis is removed. Building on the insights 
+		  from this simulated study, we then selected an appropriate real-world dataset to further validate our findings.</p>
+
+		  <h4>My Contributions</h4>
+		  <p>The research topic was suggested by my PI, but I was responsible for shaping and carrying out the study. 
+		  I conducted the literature review, selected the texture dataset, and determined the experimental formulations that would best address our research questions. 
+		  I also designed and executed the experiments, analyzed the results, and wrote the manuscript. 
+		  My PI also helps by providing feedbacks on the experimental designs and structure refinement of the manuscript.</p>
+
+		  <h4>Publication</h4>
+		  <p>
+			<a href="https://www.sciencedirect.com/science/article/abs/pii/S003132032300715X">Link to journal paper</a>
+		  </p>
+		</div>
+	  </details>
+	</li>
+
+      <!-- Repeat for the other projects -->
+    </ul>
+  </details>
+      </div>
+
+      <div class="float-window">
         <details>
-          <summary>Real-World Applications</summary>
+          <summary>Data Annotation & Strategy (coming soon)</summary>
           <ul>
-            <li><strong>Segment Anything for Medical Images</strong> (2023)<span class="tag tag-app">App</span>: Evaluated SAM vs existing models, built API, published in <em>Medical Image Analysis</em>.</li>
-            <li><strong>Placenta Accreta Detection</strong> (2024)<span class="tag tag-app">App</span>: Deployed DeepLabV3+ with clinicians, published in <em>UOG</em>.</li>
-            <li><strong>Deep RL for UAV Missions</strong> (2021)<span class="tag tag-app">App</span>: Reinforcement learning for UAV exploration, published in <em>ICUAS</em>.</li>
-            <li><strong>Wilderness Search and Rescue</strong> (2020)<span class="tag tag-app">App</span>: RL rescue strategies, co-authored <em>SSRR</em> paper.</li>
           </ul>
         </details>
       </div>
 
       <div class="float-window">
         <details>
-          <summary>Data Annotation & Strategy</summary>
+          <summary>Applied Machine learning (coming soon)</summary>
           <ul>
-            <li><strong>Slice Annotation Strategies</strong> (2025)<span class="tag tag-tech">Data</span>: Sparse 3D segmentation strategies, manuscript to <em>MIDL</em>.</li>
-            <li><strong>Weak Annotation Cost-Effectiveness Study</strong> (2023)<span class="tag tag-tech">Data</span>: Trade-offs in weak labels, published in <em>J. Imaging Informatics in Medicine</em>.</li>
-            <li><strong>SVM-Based Program Identity Detection</strong> (2020–21)<span class="tag tag-tech">Data</span>: Program fingerprinting, completed undergraduate thesis.</li>
-          </ul>
-        </details>
-      </div>
-
-      <div class="float-window">
-        <details>
-          <summary>Model Analysis & Evaluation</summary>
-          <ul>
-            <li><strong>Failure Modes of SAM</strong> (2025)<span class="tag tag-tech">Eval</span>: Studied segmentation failures, metrics for textural confusion, submitted to <em>ICCV</em>.</li>
-            <li><strong>Shape Learning in CNNs</strong> (2024)<span class="tag tag-tech">Eval</span>: Shape vs texture reliance in CNNs, published in <em>Pattern Recognition</em>.</li>
-            <li><strong>UAV Path Planning Algorithm</strong> (2021)<span class="tag tag-tech">Eval</span>: Novel planning method, 2.5× efficiency, first-author conference paper.</li>
-            <li><strong>Symbolic-AI for UAV Exploration</strong> (2021)<span class="tag tag-tech">Eval</span>: Symbolic reasoning with UAVs, co-authored in <em>ICARA</em>.</li>
           </ul>
         </details>
       </div>
