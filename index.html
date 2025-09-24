@@ -11,14 +11,14 @@
   <div class="container">
     <header>
       <h1>Yixin Zhang</h1>
-      <p>Ph.D. Candidate, Electrical and Computer Engineering at Duke University</p>
-      <p>
+      <h4>
+        Ph.D. Candidate, Electrical and Computer Engineering at Duke University<br>
         Open to work in
         <img src="https://flagcdn.com/us.svg" width="20" alt="US flag"> US,
         <img src="https://flagcdn.com/ca.svg" width="20" alt="Canada flag"> Canada,
         <img src="https://flagcdn.com/gb.svg" width="20" alt="UK flag"> UK,
         <img src="https://flagcdn.com/eu.svg" width="20" alt="Europe flag"> EU
-      </p>
+      </h4>
       <p>
         <a href="mailto:lucas.yixin.zhang@outlook.com">Email</a> ·
         <a href="https://github.com/yzluka">GitHub</a> ·
@@ -28,19 +28,15 @@
     </header>
 
     <!-- About Me -->
-    <section class="float-window">
-      <details class="parent" open >
-        <summary>About Me</summary>
-        <p>
-          I am a Ph.D. candidate at Duke University, researching deep learning for medical image analysis. 
-          My work focuses on understanding and improving segmentation models using techniques like shape learning in CNNs, 
-          weak and noisy annotations, and model evaluation under real-world constraints.
-        </p>
-        <p>
-          While I value rigorous research, I am particularly motivated by projects that intersect with practical challenges 
-          and can be applied in real-world, product-driven environments. 
-          I aim to work on solutions that address industry-relevant problems and contribute to the development of usable technologies.
-        </p>
+    <section>
+      <h2>About Me</h2>
+        <h3 style="color: #640707;">
+          I’m a Ph.D. candidate at Duke University working on deep learning for medical image analysis,
+           with a focus on data quality, segmentation models, and real-world evaluation. 
+           Beyond research, I care deeply about building ML systems that are efficient, deployable, 
+           and aligned with product and business needs. I bring a practical mindset and enjoy 
+           translating technical work into real impact.
+        </h3>
       </details>
     </section>
 
@@ -67,7 +63,7 @@
 
     <!-- Research Projects -->
     <section>
-      <h2>Research Projects</h2>
+      <h2>Research Projects Gallery</h2>
 
       <div class="float-window">
       <details class="parent" open>
@@ -76,8 +72,10 @@
 	    <li>
 	  <details class="sub">
 		<summary>
-		  Revealing Failure Modes of Segment Anything Model (SAM)
-		</summary>
+		  Paper: "Quantifying the Limits of Segment Anything Model:  
+      <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; 
+      Analyzing Challenges in Segmenting Tree-Like and Low-Contrast Structures"
+    </summary>
 		<div class="project-details">
 		  <h4>Motivation</h4>
 		  <p>As of 2024, existing studies have demonstrated where SAM performs effectively and where its limitations arise. 
@@ -91,6 +89,13 @@
 		  such as irregular shapes, low contrast, or noisy boundaries. We then quantified this metric across datasets and evaluated its correlation with SAM’s segmentation accuracy, 
 		  measured by the Dice Similarity Coefficient (DSC), particularly on datasets that SAM consistently found challenging.</p>
 
+      <h4>Findings</h4>
+		  <p>SAM by Meta, and likely any model fine-tuned from or pre-trained on their dataset, would be 
+        vulnerable to tree- or grid- like structure, and low textual separability 
+        (the difference in texture) between the target object and its surroundings. 
+        The extent of such features is negatively correlated to the perfomrance of SAM-family models.  
+      </p>
+
 		  <h4>My Contributions</h4>
 		  <p>The research topic was defined by my PI, and I was responsible for designing and conducting the experiments. 
 		  This included curating datasets, implementing a prompt simulation algorithm, testing different prompting strategies, 
@@ -99,7 +104,7 @@
 
 		  <h4>Publication</h4>
 		  <p>
-			<a href="https://openreview.net/pdf?id=pYo3asIaMY">Link to journal paper</a>
+			<a href="https://openreview.net/pdf?id=pYo3asIaMY">Link to preprint paper</a>
 		  </p>
 		</div>
 	  </details>
@@ -107,7 +112,7 @@
 	<li>
 	  <details class="sub">
 		<summary>
-		  Empirical Evaluation of Segment Anything Model (SAM) for Medical Images Application
+		  Paper: "Segment anything model for medical image analysis: an experimental study"
 		</summary>
 		<div class="project-details">
 		  <h4>Motivation</h4>
@@ -123,6 +128,12 @@
 		  We further explored multiple prompting strategies by varying prompt style, position, and count to understand their impact on segmentation outcomes. 
 		  For benchmarking, SAM’s performance was compared against other state-of-the-art interactive segmentation models, 
 		  including RITM, SimpleClick, and FocalClick, and the final results were analyzed to highlight performance differences and remaining gaps.</p>
+
+      <h4>Findings</h4>
+		  <p>The vanilla SAM does not show universal zero-shot generalization capability to 
+        all medical image usage cases. Additional quality control measures will be needed
+        for its deplyment in an automated medical image segmentation system.</p>
+
 
 		  <h4>My Contributions</h4>
 		  <p>I contributed to the design of the prompt simulation algorithm, which was developed to generate prompts that mimic human input. 
@@ -140,7 +151,7 @@
 		<li>
 	  <details class="sub">
 		<summary>
-		  Analyzing the Feature Learning Trends in CNN-based Networks for Semantic Segmentation
+		  Paper: "Convolutional neural networks rarely learn shape for semantic segmentation"
 		</summary>
 		<div class="project-details">
 		  <h4>Motivation</h4>
@@ -154,6 +165,11 @@
 		  behavior changes as additional information becomes available. To quantify the importance of individual features, 
 		  we designed a metric based on the performance drop that occurs when the feature under analysis is removed. Building on the insights 
 		  from this simulated study, we then selected an appropriate real-world dataset to further validate our findings.</p>
+
+      <h4>Findings</h4>
+      <p>Shape, or contours, are virtually the least prioritized feature to be learned by CNNs, 
+        as long as other alternative discriminative features presents. 
+      </p> 
 
 		  <h4>My Contributions</h4>
 		  <p>The research topic was suggested by my PI, but I was responsible for shaping and carrying out the study. 
@@ -172,20 +188,223 @@
       <!-- Repeat for the other projects -->
     </ul>
   </details>
-      </div>
+  </div>
 
-      <div class="float-window">
-        <details class="parent">
-          <summary>Applied Machine learning (coming soon)</summary>
-          <ul>
+  <div class="float-window">
+    <details class="parent" open>
+      <summary>Applied AI & Machine learning</summary>
+      <ul>
+      <li>
+      <details class="sub">
+      <summary>
+        Paper: "Rethinking Pulmonary Embolism Segmentation:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        A Study of Current Approaches and Challenges with an Open Weight Model"  
+      </summary>
+      <div class="project-details">
+        <h4>Motivation</h4>
+        <p>Pulmonary embolism (PE) is a life-threatening condition, 
+          and accurate segmentation of emboli from CT pulmonary angiography (CTPA) is 
+          vital for diagnosis and treatment planning. 
+          However, voxel-level PE segmentation is underexplored due to the complexity 
+          of embolus morphology and the lack of standardized benchmarks, comparative studies,
+          and open-weight models. This study aims to address this gap.</p>
+
+        <h4>Reseach Method</h4>
+        <p>We established a consistent model configuration and training pipeline, 
+          implemented and compared 9 different model architectures containing both Convolution Neural Network
+          (CNN-) and Transformer (ViT-) based models. Aside from the 9 models, we also evaluated the 
+          impact of supervised pre-training on Segmenation task by using pre-trained weights
+          for parameter initialization in segment networks. Upon completion of these experiments,
+          we apply further EDA and data mining to discover the potenital presence of clinical and abstract 
+          features that have the most profound impact on model performance.</p>
+        
+        <h4>Findings</h4>
+        <p>The study found that 3D CNNs consistently outperformed Vision Transformers 
+          and 2D models for pulmonary embolism segmentation, while classification-based 
+          pretraining harmed performance. It also revealed that models trained on the same 
+          dataset exhibit consistent prediction patterns, and that many claimed improvements 
+          in prior literature do not hold under rigorous, standardized evaluation due to technical 
+          flaws in experimental design.</p>
+
+
+        <h4>My Contributions</h4>
+        <p>I led the full life cycle of the study, including scoping, experimental design and adjustment, 
+          stakeholder communication, and reporting (manuscripting), using an existing annotated in-house dataset.</p>
+
+        <h4>Resources</h4>
+        <p>
+        <a href="https://arxiv.org/abs/2509.18308">Link to preprint paper</a>
+        <a href="https://github.com/mazurowski-lab/PulmonaryEmbolismSegmentation">Link to project repository</a>
+        </p>
+      </div>
+      </details>
+      </li>
+      
+      <li>
+      <details class="sub">
+      <summary>
+        Letter: Pilot study of machine learning for detection of placenta accreta spectrum 
+      </summary>
+      <div class="project-details">
+        <h4>Motivation</h4>
+        <p>Placenta accreta spectrum (PAS) is a serious pregnancy complication. 
+          Early detection is critical, and ultrasound is the main diagnostic tool. 
+          However, ultrasound interpretation is operator dependent. Plus, a patient’s prior risk 
+          influences diagnostic interpretation, which limits objectivity in research. This study aimed 
+          to see whether machine learning (ML) could segment key anatomical structures (placenta, uterus, bladder) 
+          from ultrasound images</p>
+
+        <h4>Reseach Method</h4>
+        <p>The study is a retrospective review of 37 patients at a single referral center. 
+          Multiple CNN-based computer vision models (DeepLebV3, UNet, Inception-UNet), with or
+          without the further training via semi-supervised learning techniques, were trained to 
+          evaluate their segmenation performance on placenta, bladder and uterus.    
+        </p>
+
+        <h4>Findings</h4>
+        <p>Deep Leanring method can reliably localize placenta, 
+          yet still facing challenges in provide accurate delineation of contours.  
+          Further work is needed to improve segmentation of bladder and uterus.
+          Plus, existing dataset contains significant domain disparity between PAS-positive
+          and PAS-negative cases. More representative dataset is desired.</p> 
+        
+        <h4>My Contributions</h4>
+        <p>I set up the annotation pipeline and coordinated with clinicians 
+          to ensure accurate annotations of the placenta, uterus, and bladder. 
+          I designed the experimental framework, including dataset preparation, 
+          train/val/test splits, and evaluation metrics. 
+          I implemented all models architectures and along with semi-supervised framework (EMA-MT) 
+          to assess their performance on ultrasound image segmentation.</p>
+
+        <h4>Publication</h4>
+        <p>
+        <a href="https://openurl.ebsco.com/EPDB%3Agcd%3A5%3A12951749/detailv2?sid=ebsco%3Aplink%3Ascholar&id=ebsco%3Agcd%3A179412107&crl=c&link_origin=scholar.google.com">Link to letter</a>
+        </p>
+      </div>
+      </details>
+      </li>
+
           </ul>
         </details>
       </div>
 
       <div class="float-window">
-        <details class="parent">
-          <summary>Data Annotation & Strategy (coming soon)</summary>
+        <details class="parent" open>
+          <summary>Data Annotation & Strategy</summary>
           <ul>
+            <li>
+      <details class="sub">
+      <summary>
+        ***Further Study Coming Soon
+      </summary>
+      <!-- <div class="project-details">
+        <h4>Motivation</h4>
+        <p>Motivation text</p>
+
+        <h4>Reseach Method</h4>
+        <p>Method text</p>
+
+        <h4>My Contributions</h4>
+        <p>contribution text</p>
+
+        <h4>Publication</h4>
+        <p>
+        <a href="https://openreview.net/pdf?id=pYo3asIaMY">Link to journal paper</a>
+        </p>
+      </div> -->
+      </details>
+      </li>
+            <li>
+      <details class="sub">
+      <summary>
+        Paper: "How to select slices for annotation to train best-performing <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        deep learning segmentation models for cross-sectional medical images?" 
+      </summary>
+      <div class="project-details">
+        <h4>Motivation</h4>
+        <p>Annotating full 3D medical image volumes (CT, MRI) is costly and time-intensive, 
+          so researchers often rely on sparse annotation, where only a subset of slices are 
+          labeled. However, it remains unclear how to best choose which slices to annotate 
+          under a limited budget. </p>
+        <h4>Reseach Method</h4>
+        <p>The study addresses three central questions:<br>
+          (1) Is it better to annotate many volumes with few slices each, or fewer volumes with more slices each? <br>
+          (2) How much impact do slice-selection strategies within the same 3D scan have?<br>
+          (3) Does interpolating unannotated slices with pseudo-labels improve segmentation performance?<br>
+          To answer these, we designed controlled experiments across multiple model architectures, 
+          datasets, slice-selection strategies, and incremental annotation budgets, 
+          exploring how the trade-off between the number of slices per scan 
+          and the total number of annotated scans unfolds.  
+        </p>
+
+        <h4>Findings</h4>
+        <p>For segmenting cross-sectional images, it is better to annotate more volumes with fewer slices each,
+           as this improves exposure to variability and boosts performance. 
+           While slice-selection strategies within a scan show minimal impact, 
+           choosing which scans to annotate is critical, since variability across scans 
+           is much greater than within a single scan. Interpolation offers limited benefit 
+           and should be used with caution.</p>
+
+
+
+        <h4>My Contributions</h4>
+        <p>I led the entire project, including conceptualization, experimental design, implementation, 
+          and analysis, guided by the requirement specification from the stakeholders.</p>
+
+        <h4>Publication</h4>
+        <p>
+        <a href="https://openreview.net/pdf?id=pYo3asIaMY">Link to journal paper</a>
+        </p>
+      </div>
+      </details>
+      </li>
+                  <li>
+      <details class="sub">
+      <summary>
+        Paper: "How to Efficiently Annotate Images for Best-Performing Deep Learning Based Segmentation Models: An Empirical Study with Weak and Noisy Annotations and Segment Anything Model"
+      </summary>
+      <div class="project-details">
+        <h4>Motivation</h4>
+        <p>Deep learning–based segmentation models rely on pixel-level ground truth masks, 
+          but producing such annotations is expensive and time-consuming, 
+          especially in domains like medical imaging where expert effort is needed. 
+          To reduce costs, we evaluate the technical feasibility and cost-effectiveness 
+          of using weak or incomplete annotation to guide the model training.</p>
+
+        <h4>Reseach Method</h4>
+        <p>We empiriclly compared multiple annotation strategies under 
+          various levels of fixed time budgets across multiple dataset (both natural and medical images)
+          and model architectures.
+          The estimated annotation costs comes from service providers, and we algorithmically 
+          simulated weaker and noisier labels from existing datasets. In addition, we 
+          tested using the Segment Anything Model (SAM) to refine bounding boxes. 
+        </p>
+
+        <h4>Findings</h4>
+        <p>Precise pixel-level annotations are never the most efficient choice under limited budgets.
+          Bounding boxes with SAM refinement were especially cost-effective but sometimes being unstable,
+          coarse contours performed well consistently in many cases, 
+          and scribbles or points worked better for natural than medical images. 
+          Overall, slightly imperfect annotations enabled nearly comparable accuracy 
+          to precise masks at much lower cost, making them ideal for budget-limited projects.</p>
+
+
+        <h4>My Contributions</h4>
+        <p>This project was originally initiated under the guidance of the PI and partially explored by a research associate. 
+          However, when the associate went on leave, only limited reusable resources were left behind.
+          Building on the PI’s motivation and a few hints from the available materials, 
+          I essentially redesigned and carried out the study from the ground up. 
+          I conducted the experiments, integrated the methods, and wrote the manuscript in full.</p>
+
+        <h4>Publication</h4>
+        <p>
+        <a href="https://link.springer.com/article/10.1007/s10278-025-01408-7">Link to journal paper</a>
+        </p>
+      </div>
+      </details>
+      </li>
           </ul>
         </details>
       </div>
