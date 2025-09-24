@@ -2,9 +2,11 @@
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   color: #222;
-  background:
-    linear-gradient(rgba(249, 246, 241, 0.85), rgba(249, 246, 241, 0.85)),
-    url("vol_youth.jpg") no-repeat center center fixed;
+  background: #f7f9fa; /* bright background */
+  background-image: url("vol_youth.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
   background-size: cover;
 }
 
@@ -14,39 +16,41 @@ body {
   margin: auto;
   padding: 20px;
   line-height: 1.6;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
 }
 
 /* ===== Header ===== */
 header {
   text-align: center;
   margin-bottom: 40px;
-  color: #002b5c; /* navy */
+  color: #002b5c; /* deep navy */
 }
 
 header a {
-  color: #b8860b; /* gold */
+  color: #7B1E1E; /* gold */
   text-decoration: none;
   font-weight: bold;
 }
 header a:hover {
   text-decoration: underline;
+  color: #7B1E1E;
 }
 
 /* ===== Floating Collapsible Cards ===== */
 .float-window {
-  background: rgba(255, 255, 255, 0.9); /* glass effect */
+  background: #EEEEEE;
+  /* border: 1px solid #0b2838; */
   border-radius: 10px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
   margin: 20px 0;
   overflow: hidden;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .float-window:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
 /* ===== Collapsible Styling ===== */
@@ -57,22 +61,19 @@ details {
 summary {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* text left, icon right */
+  justify-content: space-between;
   padding: 15px 20px;
   font-size: 1.2em;
   font-weight: bold;
   cursor: pointer;
-  background: #002b5c; /* navy closed */
-  color: #fff;
+  background: #002b5c; /* navy when collapsed */
+  color: #EEEEEE;
 }
 
-/* hide default disclosure marker */
 summary::-webkit-details-marker {
   display: none;
 }
 
-
-/* Custom chevrons */
 summary::after {
   content: "";
   display: inline-block;
@@ -80,20 +81,31 @@ summary::after {
   height: 20px;
   background: url("icons/dd_round.svg") no-repeat center center;
   background-size: contain;
-  filter: brightness(0) invert(1); /* make white if original black */
-
-}
-
-/* Open (expanded) state icon */
-details[open] summary::after {
-  background: url("icons/du_round.svg") no-repeat center center;
-  background-size: contain;
   filter: brightness(0) invert(1);
 }
 
-details[open] summary {
-  background: #b8860b; /* gold when open */
-  color: #fff;
+/* Parent category (open) */
+details.parent[open] > summary {
+  background: #DBa858;
+  color: #002b5c;
+}
+
+/* Sub-category collapsed */
+details.sub > summary {
+  background: #7B1E1E;  /* slightly muted crimson */
+  color: #EEEEEE;
+}
+
+/* Sub-category expanded */
+details.sub > summary {
+  background: #f2e8dc; /* brighter background */
+  color: #002b5c;      /* navy text */
+  font-weight: bold;
+  text-shadow: 
+    1px 1px 2px rgba(0,0,0,0.2),   /* soft shadow below */
+    -1px -1px 2px rgba(255,255,255,0.6); /* highlight above */
+  padding: 0.6em 1em;
+  border-radius: 6px; /* softer edges */
 }
 
 details > ul,
@@ -105,8 +117,8 @@ details > p {
 
 /* ===== Section Titles ===== */
 h2 {
-  color: #002b5c;
-  border-bottom: 2px solid #ddd;
+  color: #012e46;
+  border-bottom: 2px solid #DBa858;
   padding-bottom: 6px;
   margin-bottom: 16px;
 }
@@ -118,30 +130,30 @@ h2 {
   padding: 2px 6px;
   margin-left: 8px;
   border-radius: 4px;
-  color: #fff;
+  color: #EEEEEE;
 }
 .tag-tech {
-  background-color: #002b5c;
+  background-color: #083248;
 }
 .tag-app {
-  background-color: #b8860b;
+  background-color: #DBa858;
+  color: #002b5c;
 }
 
 /* ===== Footer ===== */
 footer {
   text-align: center;
-  color: #eee;
+  color: #666;
   margin-top: 60px;
   font-size: 0.9em;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  text-shadow: 0 1px 3px rgba(255,255,255,0.4);
 }
-
 
 /* Remove bullets from nested lists */
 details ul {
   list-style: none;
   margin: 0;
-  padding-left: 1em; /* keep indentation */
+  padding-left: 1em;
 }
 
 li > details {
@@ -150,42 +162,42 @@ li > details {
   padding: 0;
 }
 
-/* Style nested <summary> differently */
+/* Style nested <summary> */
 details details > summary {
-  background: #f5f5f5;   /* light gray background */
+  background: #f0f0f0;
   color: #222;
   font-size: 1em;
   font-weight: normal;
   padding: 10px 16px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #ccc;
 }
 
-/* Custom + / – toggles for nested dropdowns */
 details details > summary::after {
-  background: none !important; /* disable the svg icon */
-  content: "+";                /* use + by default */
+  background: none !important;
+  content: "+";
   font-weight: bold;
   font-size: 1.1em;
-  margin-left: auto;           /* push to the right */
+  margin-left: auto;
 }
 
 details details[open] > summary::after {
-  content: "–";                /* change to – when open */
+  content: "–";
 }
 
-/* Optional: subtle background change when open */
 details details[open] > summary {
-  background: #e0e0e0;
+  background: #e8e8e8;
   color: #000;
 }
 
 .project-details h4 {
-  margin-top: 0.6em;   /* smaller top margin */
-  margin-bottom: 0.3em; /* tighter bottom margin */
-  font-size: 1.05em;   /* optional: slightly smaller than summary */
-  color: #002b5c;      /* keep consistent with your theme */
+  margin-top: 0.6em;
+  margin-bottom: 0.3em;
+  font-size: 1.05em;
+  color: #0b2838;
 }
+
 .project-details p {
-  margin-top: 0;       /* remove extra top space */
+  margin-top: 0;
   margin-bottom: 0.8em;
+  color: #333;
 }
